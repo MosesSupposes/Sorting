@@ -10,19 +10,11 @@ def selection_sort( arr ):
             if arr[j] < arr[smallest_index]:
                 smallest_index = j
              
-
-
-
         # TO-DO: swap
         y = arr[i]
         arr[i] = arr[smallest_index]
         arr[smallest_index] = y
 
-
-
-
-
-    print(arr)
     return arr
 
 
@@ -31,7 +23,6 @@ def bubble_sort( arr ):
     if (len(arr) == 0): 
         return arr
     
-    had_to_swap = False
     copy = arr.copy()
 
     for i in range(0, len(copy) - 1):
@@ -40,11 +31,9 @@ def bubble_sort( arr ):
             cur = copy[i]
             copy[i] = copy[i + 1]
             copy[i + 1] = cur
-            had_to_swap = True
             return bubble_sort(copy)
     
-    if had_to_swap == False:
-        return copy
+    return copy
 
 
 # STRETCH: implement the Count Sort function below
