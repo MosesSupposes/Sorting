@@ -6,27 +6,30 @@ def merge( arrA, arrB ):
     # TO-DO
     j = 0
     k = 0
-
     for i in range(0, len(merged_arr)):
-        # if j == len(arrA) - 1:
-        #     merged_arr.extend(arrB)
-        #     break
-        # elif k == len(arrB) - 1:
-        #     merged_arr.extend(arrA) 
-        #     break
+        # if we exhausted through the first list
+        if j == len(arrA):
+            # add the rest of arrB to the merged_arr. Note that arrB is already sorted
+            while k < len(arrB):
+                merged_arr[i] = arrB[k]
+                i += 1
+                k += 1
+            break
+        # if we exhaust through the second list
+        elif k == len(arrB):
+            # add the rest of arrA to the merged_arr. Note that arrA is already sorted.
+            while j < len(arrA):
+                merged_arr[i] = arrA[j]
+                i += 1
+                j += 1
+            break
             
         if j < len(arrA) and k < len(arrB):
-            print("inside")
             if arrA[j] < arrB[k]:
-                print("arrA[j] < arrB[k]", arrA[j])
                 merged_arr[i] = arrA[j]
-                print("i:", i, "merged_arr[i]:", merged_arr[i])
                 j += 1
-
             else:
-                print("arrB[k] < arrA[j]", arrB[k])
                 merged_arr[i] = arrB[k] 
-                print("i:", i, "merged_arr[i]:", merged_arr[i])
                 k += 1
     
     return merged_arr
